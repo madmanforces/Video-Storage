@@ -1,0 +1,28 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Just practice...",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madmanforces/wetube-reloaded.git"
+  },
+  "author": "Hwang sun jae",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madmanforces/wetube-reloaded/issues"
+  },
+  "homepage": "https://github.com/madmanforces/wetube-reloaded#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "nodemon": "^2.0.12"
+  }
+}
