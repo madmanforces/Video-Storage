@@ -12,6 +12,9 @@ app.use(logger);
 //이곳부터 express와 관련된 코드를 작성//
 
 //router//
+app.set("view engine", "pug");
+
+app.set("views", process.cwd() + "/src/views");
 
 app.use("/",globalRouter );
 
