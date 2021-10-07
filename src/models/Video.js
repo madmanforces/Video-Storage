@@ -11,8 +11,8 @@ const videoSchema = new mongoose.Schema({
     },
 });
 
-const Video = mongoose.model("Video", videoSchema);
-export default Video;
+const video = mongoose.model("video", videoSchema);
+export default video;
 
 ///비디오의 데이터 형태를 정의 해줌 -> 그다음 모델을 만들고 그다음 비디오형태의 스키마를 만든다 -> 모델은 모델의 이름과
 ///데이터형태의 스키마로 만든다 -> 그다음 디폴트로 익스폴트 해주고 모두가 해당 모델를 알수있게 해줘야하기때문에
