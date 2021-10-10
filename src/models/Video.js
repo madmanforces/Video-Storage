@@ -10,6 +10,13 @@ const videoSchema = new mongoose.Schema({
         rating: { type: Number, default: 0, required: true },
     },
 });
+/* 미들웨어는 모델이 생성되기 전에 만들어져야한다! */
+videoSchema.pre("save", async function () {
+    this.hashtags = this.hashtags[0]
+      .split(",")
+      .map((word) => (word.startsWith("#") ? word : `#${word}`));
+  });
+  
 
 const Video = mongoose.model("Video", videoSchema);
 export default Video;
