@@ -1,8 +1,7 @@
 import  mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
-    title: { type: String, required: true, trim: true,  maxLength: 80 },
-    description: { type: String, required: true, trim: true, maxLength: 20 },
+    title: { type: String, required: true, trim: true,  },
     createdAt: { type: Date, required: true, default: Date.now },
     hashtags: [{ type: String, trim: true }],
     meta: {
@@ -10,9 +9,10 @@ const videoSchema = new mongoose.Schema({
         rating: { type: Number, default: 0, required: true },
     },
 });
-/* 미들웨어는 모델이 생성되기 전에 만들어져야한다! */
-videoSchema.pre("save", async function () {
-    this.hashtags = this.hashtags[0]
+/* 미들웨어는 모델이 생성되기 전에 만들어져야한다!
+    startsWith 메소드로 어떤 문자열이 다른 문자열로 시작하는지 확인 할 수 있습니다. 대소문자를 구분합니다. */
+ videoSchema.static("formatHashtags", function (hashtags) {
+        return hashtags
       .split(",")
       .map((word) => (word.startsWith("#") ? word : `#${word}`));
   });
