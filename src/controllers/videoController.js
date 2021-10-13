@@ -83,7 +83,7 @@ export const search = async(req,res) => {
     videos = await Video.find({
       title: {
         //regulatexpression! keyword 앞에 ^이 붙으면 - 시작점 keyword 뒤에 $이 붙으면 -끝점//
-        $regex: new RegExp(`${keyword}$`, "i"),
+        $regex: new RegExp(`${keyword}`, "i"),
       },
     });
   }
