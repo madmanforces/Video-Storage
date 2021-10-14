@@ -18,7 +18,7 @@ function안에서 return 은 아무 기능도 하지않는다. 단지 마무리�
 
 export const home = async (req, res) => {
   const videos = await Video.find({}).sort({createdAt: "desc" });
-  return res.render("home", { pageTitle: "Home", videos });
+  return res.render("home", { pageTitle: "홈", videos });
 };
 
 export const watch = async (req, res) => {
@@ -52,7 +52,7 @@ export const postEdit = async (req, res) => {
     return res.redirect(`/videos/${id}`);
   };
 export const getUpload = (req, res) => {
-    return res.render("upload", { pageTitle: "Upload Video" });
+    return res.render("upload", { pageTitle: "업로드" });
 };
 export const postUpload = async (req, res) => {
   const { title, description, hashtags } = req.body;
@@ -87,7 +87,7 @@ export const search = async(req,res) => {
       },
     });
   }
-  return res.render("search", { pageTitle:"Search", videos });
+  return res.render("search", { pageTitle:"검색", videos });
 };
 
 

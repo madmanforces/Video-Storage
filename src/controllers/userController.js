@@ -1,7 +1,7 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
 
-export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
+export const getJoin = (req, res) => res.render("join", { pageTitle: "회원가입" });
 export const postJoin = async (req, res) => {
     const { name, username, email, password,password2, location } = req.body;
     const pageTitle = "Join";
@@ -36,7 +36,7 @@ export const postJoin = async (req, res) => {
 };
 
 export const getLogin = (req, res) =>
-  res.render("login", { pageTitle: "Login" });
+  res.render("login", { pageTitle: "로그인" });
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -55,8 +55,12 @@ export const postLogin = async (req, res) => {
       errorMessage: "잘못된 비밀번호 입니다!",
     });
   }
+req.session.loggedIn = true;
+req.session.user = user;
   return res.redirect("/");
 };
+
+
 
 
 export const edit = (req, res) => res.send("Edit User");
