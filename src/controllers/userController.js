@@ -139,18 +139,16 @@ export const finishGithubLogin = async (req, res) => {
   }
 };
 
+export const logout = (req, res) => {
+  req.session.destroy();
+  return res.redirect("/");
+};
 
 
 
 
 export const edit = (req, res) => res.send("Edit User");
 
-export const remove = (req, res) => res.send("Remove User");
-
-
-
 export const see = (req, res) => res.send("User ID");
-
-export const logout = (req, res) => res.send("Logout User");
 
 //https://ko.wikipedia.org/wiki/HTTP_%EC%83%81%ED%83%9C_%EC%BD%94%EB%93%9C 상태코드 위키백과//
