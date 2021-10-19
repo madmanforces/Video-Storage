@@ -1,3 +1,6 @@
+import multer from "multer";
+
+
 export const localsMiddleware = (req, res, next) => {
     res.locals.loggedIn = Boolean(req.session.loggedIn);
     res.locals.siteName = "Suntube";
@@ -21,3 +24,5 @@ export const localsMiddleware = (req, res, next) => {
       return res.render("/")
     }
   };
+
+  export const uploadFiles = multer({ dest: "uploads/" });
