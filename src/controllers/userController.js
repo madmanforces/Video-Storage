@@ -204,6 +204,16 @@ export const postChangePassword = async (req, res) => {
   };
 
 
-export const see = (req, res) => res.send("User ID");
+  export const see = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).render("404", { pageTitle: "User not found." });
+    }
+    return res.render("users/profile", {
+      pageTitle: user.name,
+      user,
+    });
+  };
 
 //https://ko.wikipedia.org/wiki/HTTP_%EC%83%81%ED%83%9C_%EC%BD%94%EB%93%9C 상태코드 위키백과//
