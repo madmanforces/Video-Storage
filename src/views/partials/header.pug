@@ -1,8 +1,11 @@
 header
+    a(href="/").header__logo
+        i.fab.fa-youtube
     nav
         ul
             li 
-                a(href="/") 홈
+                a(href="/search") 
+                    i.fas.fa-search
             if loggedIn 
                 li
                     a(href="/videos/upload") 업로드 
@@ -14,8 +17,7 @@ header
                     a(href="/users/logout")  로그아웃 
             else 
                 li
-                    a(href="/join") 회원가입   
+                    a(href="/join").header__btn 회원가입   
                 li
                     a(href="/login") 로그인        
-            li 
-                a(href="/search") 검색
+            
