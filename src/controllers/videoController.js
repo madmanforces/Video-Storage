@@ -18,7 +18,9 @@ function안에서 return 은 아무 기능도 하지않는다. 단지 마무리�
 */
 
 export const home = async (req, res) => {
-  const videos = await Video.find({}).sort({createdAt: "desc" });
+  const videos = await Video.find({})
+    .sort({ createdAt: "desc" })
+    .populate("owner");
   return res.render("home", { pageTitle: "홈", videos });
 };
 
@@ -118,7 +120,7 @@ export const search = async(req,res) => {
         //regulatexpression! keyword 앞에 ^이 붙으면 - 시작점 keyword 뒤에 $이 붙으면 -끝점//
         $regex: new RegExp(`${keyword}`, "i"),
       },
-    });
+    }).populate("owner");
   }
   return res.render("search", { pageTitle:"검색", videos });
 };
