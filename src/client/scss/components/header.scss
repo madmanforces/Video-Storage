@@ -6,7 +6,9 @@ header {
     align-items: center;
     .header__logo {
         color: $logo;
-        font-size: 40px;
+        font-size: 30px;
+        align-items: center;
+        display: flex;
     }
 ul {
     display: flex;
@@ -29,3 +31,10 @@ ul {
     border-radius: 6px;
 }
 }
+
+    .header__title {
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 5px;  
+    }
+
