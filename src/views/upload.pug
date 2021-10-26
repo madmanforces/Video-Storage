@@ -1,9 +1,8 @@
 extends base.pug
 
 block content
-     //div
+     div
         video#preview
-        button#startBtn 녹화 시작하기//
      if errorMessage 
         span=errorMessage
      form(method="POST", enctype="multipart/form-data")
@@ -15,4 +14,4 @@ block content
         input(type="submit", value="Upload Video")
 
 block scripts
-    script(src="/static/js/recorder.js")  
+    

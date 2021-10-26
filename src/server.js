@@ -2,6 +2,7 @@ require("dotenv").config();
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import rootRouter from "../src/routers/rootRouter";
 import userRouter from "../src/routers/userRouter";
@@ -29,6 +30,7 @@ app.use(
 })
 );
 
+app.use(flash());
 
 //router//
 app.use(localsMiddleware);
