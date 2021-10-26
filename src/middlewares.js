@@ -34,6 +34,6 @@ export const localsMiddleware = (req, res, next) => {
   export const videoUpload = multer({
     dest: "uploads/videos/",
     limits: {
-      fileSize: 10000000000,
+      fileSize: 9000000000000,
     },
   });
